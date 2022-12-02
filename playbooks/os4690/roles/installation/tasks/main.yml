@@ -5,7 +5,7 @@
     tasks_from: Erase_ACE.yml
   when: opc  == "1"
 
-  - name: Preparing the adx_imnt directory.
+- name: Preparing the adx_imnt directory.
   include_role:
     name: installation
     tasks_from: Prepare_adx_imnt_Directory.yml
