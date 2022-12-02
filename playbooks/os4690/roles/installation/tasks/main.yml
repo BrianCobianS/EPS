@@ -89,14 +89,3 @@
     name: installation
     tasks_from: Report_Module_Backup_ACE3D.yml
 
-<!-- - name: Check de log file of ASM
-  command: cat adxcshsf.dat
-  args:
-      chdir: "{{c_adx_sdt1}}"
-
-- name: Report Module Level.
-  include_role:
-    name: installation
-    tasks_from: Report_Module_Backup_ACE4D.yml -->
-
-
