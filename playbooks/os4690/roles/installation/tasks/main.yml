@@ -52,12 +52,6 @@
 - name: Copy Files In UINSTALL y ACE4D
   shell: "cp {{landing_zone}}ACE4D001-{{level_complementEPS}}.zip {{c_drive}}ACE4D/ACE4D001.zip;"
 
-- name: Printing opc ACE3D
-  shell: "echo {{opc}} >> {{c_adx_imnt}}UINSTALL/START3D.BAT"
-
-- name: Printing opc ACE4D
-  shell: "echo {{opc}} >> {{c_adx_imnt}}UINSTALL/START4D.BAT"
-
 - name: Unziping the package of installation
   shell: "python3 {{c_adx_imnt}}UINSTALL/unZIP.PY"
 
