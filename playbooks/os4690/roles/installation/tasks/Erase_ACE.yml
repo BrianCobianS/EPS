@@ -1,0 +1,27 @@
+##########################################
+## Removes ADXCATGD.DAT located in Ipgm
+## Required variables:
+## - c_adx_ipgm
+##########################################
+
+---
+
+
+- name: Cheks if there is an ACE old Version dat
+  stat:
+    path: "{{c_adx_ipgm}}ADXCATGD.DAT"
+  register: lp
+
+- name: Deleting the ACE old Version dat
+  shell: "rm {{c_adx_ipgm}}ADXCATGD.DAT"
+  when: lp.stat.exists
+
+- name: Cheks if there is an ACE EPS old Version dat
+  stat:
+    path: "{{c_adx_ipgm}}ADXCATID.DAT"
+  register: lp
+
+- name: Deleting the ACE EPS old Version dat
+  shell: "rm {{c_adx_ipgm}}ADXCATID.DAT"
+  when: lp.stat.exists
+
