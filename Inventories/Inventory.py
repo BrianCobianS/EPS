@@ -10,4 +10,4 @@ def controller(host,user,password):
     f.writelines("\n".join(contenido))
 controller('10.89.105.98','master','m1')
 
-# ansible-playbook playbooks/os4690/Install_Controller.yml -vv  -i Inventories/import_inventory.yml -e 'level_complement=V8R1SP2.j292.1-20221111.223820-1 opc=1 ASM=Accept level_name=V8R1SP2.j292 level_complementEPS=V8R1SP2.j292.1-20221111.223829-1' 2>&1 | tee temp.txt
+# ansible-playbook playbooks/os4690/Install_Controller.yml -vv  -i Inventories/import_inventory.yml -e 'level_complement=V8R1SP2.j292.1-20221111.223820-1 opc=1 ASM=Accept level_name=V8R1SP2.j292.1 level_complementEPS=V8R1SP2.j292.1-20221111.223829-1' 2>&1 | tee temp.txt

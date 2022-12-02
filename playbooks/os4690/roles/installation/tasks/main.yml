@@ -5,6 +5,17 @@
     tasks_from: Erase_ACE.yml
   when: opc  == "1"
 
+- name: Create Landing Zone
+  include_role:
+    name: installation
+    tasks_from: Create_Landing_Zone.yml
+
+- name: Copy Files In Landing Zone
+  copy:
+    src: "{{item}}"
+    dest: "{{landing_zone}}"
+  with_fileglob: "{{config_dir}}/*.*"
+
 - name: Preparing the adx_imnt directory.
   include_role:
     name: installation
