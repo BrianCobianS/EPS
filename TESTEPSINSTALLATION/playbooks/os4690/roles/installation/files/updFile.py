@@ -68,21 +68,6 @@ def erasepauses(archivo):
     f.writelines("\n".join(contenido))
     f.close
 
-
-changeBat('/mnt/c/ace3d/install.bat','MENU\n','AUTO.BAT', 0)
-changeBat('/mnt/c/ace3d/1.bat','MENU\n','CLS\n9.BAT', 2)
-changeBat('/mnt/c/ace3d/1.bat','menu\n','CLS\n9.BAT', 0)
-changeBat('/mnt/c/ace3d/2.bat','   menu\n','   CLS\n   9.BAT', 2)
-changeBat('/mnt/c/ace3d/2.bat','menu\n','CLS\n9.BAT', 2)
-
-erasepauses("/mnt/c/ace3d/1.bat")
-erasepauses("/mnt/c/ace3d/2.bat")
-erasepauses("/mnt/c/ace3d/0.bat")
-erasepauses("/mnt/c/ace3d/7.bat")
-erasepauses("/mnt/c/ace3d/8.bat")
-erasepauses("/mnt/c/ace3d/EAMRMCDZ.bat")
-erasepauses("/mnt/c/ace3d/PPINSWIN.bat")
-
 changeBat('/mnt/c/ace4d/install.bat','MENU\n','AUTO.BAT', 0)
 changeBat('/mnt/c/ace4d/1.bat','MENU\n','CLS\n9.BAT', 2)
 changeBat('/mnt/c/ace4d/1.bat','menu\n','CLS\n9.BAT', 0)

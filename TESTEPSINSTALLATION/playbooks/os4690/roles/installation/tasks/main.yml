@@ -1,3 +1,9 @@
+- name: Preparing the c_adx_ipgm directory.
+  include_role:
+    name: installation
+    tasks_from: Erase_ACE.yml
+  when: opc  == "1"
+
 - name: Check ACE4D Exist
   stat:
     path: "{{c_drive}}ACE4D/"
@@ -18,7 +24,10 @@
     dest: "{{landing_zone}}"
 
 - name: Copy ACE4D
-  shell: "cp {{landing_zone}}ACE4D001-{{level_complementEPS}}.zip {{c_drive}}ACE4D/ACE4D001.zip;"
+  shell: "cp {{landing_zone}}ACE4D001-{{level_complementEPS}}.zip {{c_drive}}ACE4D/ACE4D001.zip; cp {{landing_zone}}asm.py {{c_adx_imnt}}/;"
 
 - name: Unziping the package of installation
   shell: "python3 {{c_adx_imnt}}UINSTALL/unZIP.PY"
+
+- name: Updating the installation files 
+  shell: "python3 {{c_adx_imnt}}UINSTALL/updFile.py"
