@@ -73,6 +73,11 @@
     sleep: 5
     delay: 10
     timeout: 300
+
+- name: Check de log file of ASM
+  command: cat adxcshsf.dat
+  args:
+      chdir: "{{c_adx_sdt1}}"
   
 - name: Cleaning adx_imnt
   shell: "rm -r {{c_adx_imnt}}*"
@@ -101,15 +106,15 @@
     delay: 10
     timeout: 300
 
-- name: Cleaning directories.
-  include_role:
-    name: installation
-    tasks_from: Prepare_adx_imnt_Directory.yml
-
 - name: Check de log file of ASM
   command: cat adxcshsf.dat
   args:
       chdir: "{{c_adx_sdt1}}"
+
+- name: Cleaning directories.
+  include_role:
+    name: installation
+    tasks_from: Prepare_adx_imnt_Directory.yml
 
 - name: Report Module Level.
   include_role:
