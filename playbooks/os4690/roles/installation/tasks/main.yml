@@ -61,7 +61,7 @@
 - name: Printing opc ACE3D
   shell: "echo {{opc}} >> {{c_adx_imnt}}UINSTALL/START3D.BAT"
 
-- name: Starting the installation
+- name: Starting the installation ACE3D
   shell: "{{c_adx_imnt}}UINSTALL/START3D.BAT"
 
 - name: Starting asm and reboot controller...
@@ -93,7 +93,7 @@
 - name: Printing opc ACE3D
   shell: "echo {{opc}} >> {{c_adx_imnt}}UINSTALL/START4D.BAT"
 
-- name: Starting the installation
+- name: Starting the installation EPS(ACE4D)
   shell: "{{c_adx_imnt}}UINSTALL/START4D.BAT"
 
 - name: Starting asm and reboot controller...
