@@ -1,2 +1,2 @@
-DEFINE p:=c:/ace3d/
+DEFINE p:=c:/ace4d/
 p:install
