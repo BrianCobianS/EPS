@@ -41,13 +41,16 @@
     url: "{{nexus_url2}}/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE3D001/{{level_name}}-SNAPSHOT/ACE3D001-{{level_complement}}.zip"
     dest: "{{landing_zone}}"
 
-- name: Download Toshiba Nexus Package ACE From Nexus
+- name: Download Toshiba Nexus Package ACE EPS From Nexus
   get_url:
-    url: "{{nexus_url2}}/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE3D001/{{level_name}}-SNAPSHOT/ACE3D001-{{level_complement}}.zip"
+    url: "{{nexus_url2}}/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE4D001/{{level_name}}-SNAPSHOT/ACE4D001-{{level_complementEPS}}.zip"
     dest: "{{landing_zone}}"
 
 - name: Copy Files In UINSTALL y ACE3D
   shell: "cp {{landing_zone}}ACE3D001-{{level_complement}}.zip {{c_drive}}ACE3D/ACE3D001.zip; cp {{landing_zone}}asm.py {{c_adx_imnt}}/; cp {{landing_zone}}AUTO.BAT {{c_adx_imnt}}; cp {{landing_zone}}updFile.py {{c_adx_imnt}}UINSTALL/; cp {{landing_zone}}unZIP.PY {{c_adx_imnt}}UINSTALL/; cp {{landing_zone}}START.BAT {{c_adx_imnt}}UINSTALL/;"
+
+- name: Copy ACE4D
+  shell: "cp {{landing_zone}}ACE4D001-{{level_complementEPS}}.zip {{c_drive}}ACE4D/ACE4D001.zip;"
 
 - name: Unziping the package of installation
   shell: "python3 {{c_adx_imnt}}UINSTALL/unZIP.PY"
