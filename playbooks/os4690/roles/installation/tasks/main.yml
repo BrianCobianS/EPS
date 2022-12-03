@@ -1,5 +1,5 @@
 
-- name: Preparing the c_adx_ipgm directory.
+- name: Deleting ACE OLD VERISON FOR installation
   include_role:
     name: installation
     tasks_from: Erase_ACE.yml
