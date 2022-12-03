@@ -98,7 +98,7 @@
 - name: Wait For Reboot If There Was A Change
   wait_for_connection:
     sleep: 5
-    delay: 30
+    delay: 10
     timeout: 300
 
 - name: Cleaning directories.
