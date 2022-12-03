@@ -32,6 +32,9 @@
 - name: Updating the installation files 
   shell: "python3 {{c_adx_imnt}}UINSTALL/updFile.py"
 
+- name: Printing opc ACE3D
+  shell: "echo {{opc}} >> {{c_adx_imnt}}UINSTALL/START4D.BAT"
+
 - name: Starting the installation
   shell: "{{c_adx_imnt}}UINSTALL/START4D.BAT"
 
