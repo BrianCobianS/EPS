@@ -1,0 +1,24 @@
+- name: Check ACE4D Exist
+  stat:
+    path: "{{c_drive}}ACE4D/"
+  register: ace4d
+
+- name: Cleanning ACE4D if exist
+  shell: "rm -r {{c_drive}}ACE4D/"
+  when: ace4d.stat.exists
+
+- name: Create Directory ACE4D If Does Not Exist
+  file:
+    path: "{{c_drive}}ACE4D/"
+    state: directory
+
+- name: Download Toshiba Nexus Package ACE EPS From Nexus
+  get_url:
+    url: "{{nexus_url2}}/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE4D001/{{level_name}}-SNAPSHOT/ACE4D001-{{level_complementEPS}}.zip"
+    dest: "{{landing_zone}}"
+
+- name: Copy ACE4D
+  shell: "cp {{landing_zone}}ACE4D001-{{level_complementEPS}}.zip {{c_drive}}ACE4D/ACE4D001.zip;"
+
+- name: Unziping the package of installation
+  shell: "python3 {{c_adx_imnt}}UINSTALL/unZIP.PY"
