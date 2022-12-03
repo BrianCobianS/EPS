@@ -13,7 +13,7 @@ STATUS_FILE='/mnt/c/adx_sdt1/adxcshsf.dat'
 FUNCTION=["Test", "Cancel", "Accept","Transfer"]
 F_SELECTION=(FUNCTION.index(sys.argv[1]) + 1)
 #ACTIVATE_OS=('ADXCST0L Y 3AG BY\r\n')
-ACTIVATE_OS=('ADXCST0L Y ' + str(F_SELECTION) + sys.argv[2] + ' BY\r\n')
+ACTIVATE_OS=('ADXCST0L Y ' + str(F_SELECTION) + 'AG BY\r\n')
 
 selectionFile = open(SELECTION_FILE,'w')
 selectionFile.write(CMD_FILE+'\r\n')

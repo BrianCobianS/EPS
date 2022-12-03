@@ -23,15 +23,6 @@
   shell: "rm -r {{c_drive}}ACE3D/"
   when: ace3d.stat.exists
 
-- name: Check ACE4D Exist
-  stat:
-    path: "{{c_drive}}ACE4D/"
-  register: ace4d
-
-- name: Cleanning ACE4D if exist
-  shell: "rm -r {{c_drive}}ACE4D/"
-  when: ace4d.stat.exists
-
 - name: Check adx_imnt:asm.py scripts Exist
   stat:
     path: "{{c_adx_imnt}}asm.py"
