@@ -31,3 +31,10 @@
 
 - name: Updating the installation files 
   shell: "python3 {{c_adx_imnt}}UINSTALL/updFile.py"
+
+- name: Starting the installation
+  shell: "{{c_adx_imnt}}UINSTALL/START4D.BAT"
+
+- name: Starting asm and reboot controller...
+  shell: "python2 {{c_adx_imnt}}asm.py {{ASM}} AI"
+  ignore_errors: true

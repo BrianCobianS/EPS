@@ -93,7 +93,7 @@
 
 - name: Starting asm and reboot controller...
   shell: "python2 {{c_adx_imnt}}asm.py {{ASM}} AI"
-  # ignore_errors: true
+  ignore_errors: true
 
 - name: Wait For Reboot If There Was A Change
   wait_for_connection:
