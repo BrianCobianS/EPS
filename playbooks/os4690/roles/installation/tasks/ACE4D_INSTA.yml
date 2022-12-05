@@ -16,10 +16,6 @@
 - name: Copy ACE4D
   shell: "cp {{landing_zone}}ACE4D001-{{level_complementEPS}}.zip {{c_drive}}ACE4D/ACE4D001.zip;"
 
-- name: Create Directory ACE4D If Does Not Exist
-  file:
-    path: "{{c_drive}}ACE3D/"
-    state: directory
 
 - name: cp unZIp.py and Unziping the packages of installation
   shell: "cp {{landing_zone}}unZIP.PY {{c_adx_imnt}}UINSTALL/;python3 {{c_adx_imnt}}UINSTALL/unZIP.PY 4"

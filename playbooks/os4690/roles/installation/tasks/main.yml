@@ -31,10 +31,11 @@
     name: installation
     tasks_from: ACE4D_INSTA.yml
 
-# - name: Installation Tcxpay
-#   include_role:
-#     name: installation ACE3D
-#     tasks_from: ACE3D_INSTA.yml
+- name: Installation Tcxpay
+  include_role:
+    name: installation ACE3D
+    tasks_from: Tcxpay.yml
+  when: Txcpay == "1"
 
 # - name: Installation TcxpayCommon
 #   include_role:
