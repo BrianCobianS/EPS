@@ -121,4 +121,7 @@
     name: installation
     tasks_from: Report_Module_Backup.yml
 
+- name: Cleaning adx_imnt
+  shell: "rm -r {{c_adx_imnt}}*"
+
 
