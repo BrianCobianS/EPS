@@ -53,8 +53,11 @@
   shell: "cp {{landing_zone}}ACE4D001-{{level_complementEPS}}.zip {{c_drive}}ACE4D/ACE4D001.zip;"
 
 - name: cp unZIp.py and Unziping the packages of installation
-  shell: "cp {{landing_zone}}unZIP.PY {{c_adx_imnt}}UINSTALL/;python3 {{c_adx_imnt}}UINSTALL/unZIP.PY"
+  shell: "cp {{landing_zone}}unZIP.PY {{c_adx_imnt}}UINSTALL/;python3 {{c_adx_imnt}}UINSTALL/unZIP.PY 3"
 
+- name: Unizip ACE4D
+  shell: "python3 {{c_adx_imnt}}UINSTALL/unZIP.PY 4"
+  
 - name: cp updFile.py Updating the installation files to automate the installaiton
   shell: "cp {{landing_zone}}updFile.py {{c_adx_imnt}}UINSTALL/; python3 {{c_adx_imnt}}UINSTALL/updFile.py"
 

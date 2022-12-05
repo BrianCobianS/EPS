@@ -1,8 +1,6 @@
 from zipfile import ZipFile
-with ZipFile("/mnt/c/ACE3D/ACE3D001.zip", "r") as zip:
-    zip.extractall("/mnt/c/ACE3D")
-    print("File is unzipped in %s folder" % "/mnt/c/ACE3D")
+import sys
 
-with ZipFile("/mnt/c/ACE4D/ACE4D001.zip", "r") as zip:
-    zip.extractall("/mnt/c/ACE4D")
-    print("File is unzipped in %s folder" % "/mnt/c/ACE4D")
+with ZipFile("/mnt/c/ACE"+str(sys.argv[1])+"D/ACE"+str(sys.argv[1])+"D001.zip", "r") as zip:
+    zip.extractall("/mnt/c/ACE"+str(sys.argv[1])+"D")
+    print("File is unzipped in %s folder" % "/mnt/c/ACE"+str(sys.argv[1])+"D")
