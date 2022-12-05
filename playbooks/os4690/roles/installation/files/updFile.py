@@ -69,7 +69,7 @@ def erasepauses(archivo):
     f.writelines("\n".join(contenido))
     f.close
 
-if sys.argv[1]==3:
+if sys.argv[1]=='3':
     changeBat('/mnt/c/ace3d/install.bat','MENU\n','AUTO3D.BAT', 0)
     changeBat('/mnt/c/ace3d/1.bat','MENU\n','CLS\n9.BAT', 2)
     changeBat('/mnt/c/ace3d/1.bat','menu\n','CLS\n9.BAT', 0)
@@ -82,7 +82,7 @@ if sys.argv[1]==3:
     erasepauses("/mnt/c/ace3d/8.bat")
     erasepauses("/mnt/c/ace3d/EAMRMCDZ.bat")
     erasepauses("/mnt/c/ace3d/PPINSWIN.bat")
-elif sys.argv[1]==4:
+elif sys.argv[1]=='4':
     changeBat('/mnt/c/ace4d/install.bat','MENU\n','AUTO4D.BAT', 0)
     changeBat('/mnt/c/ace4d/1.bat','MENU\n','CLS\n9.BAT', 2)
     changeBat('/mnt/c/ace4d/1.bat','menu\n','CLS\n9.BAT', 0)
@@ -94,7 +94,7 @@ elif sys.argv[1]==4:
     erasepauses("/mnt/c/ace4d/7.bat")
     erasepauses("/mnt/c/ace4d/8.bat")
     erasepauses("/mnt/c/ace4d/MIGRATE.bat")
-elif sys.argv[1]==6:
+elif sys.argv[1]=='6':
     changeBat('/mnt/c/ace6d/install.bat','MENU\n','AUTO4D.BAT', 0)
     changeBat('/mnt/c/ace6d/1.bat','MENU\n','CLS\n9.BAT', 2)
     changeBat('/mnt/c/ace6d/1.bat','menu\n','CLS\n9.BAT', 0)
