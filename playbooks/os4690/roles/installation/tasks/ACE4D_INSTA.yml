@@ -3,6 +3,30 @@
     path: "{{c_adx_imnt}}UINSTALL/"
     state: directory
 
+- name: Download Toshiba Nexus Package ACE EPS From Nexus
+  get_url:
+    url: "{{nexus_url2}}/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE4D001/{{level_name}}-SNAPSHOT/ACE4D001-{{level_complementEPS}}.zip"
+    dest: "{{landing_zone}}"
+    
+- name: Create Directory ACE4D If Does Not Exist
+  file:
+    path: "{{c_drive}}ACE4D/"
+    state: directory
+
+- name: Copy ACE4D
+  shell: "cp {{landing_zone}}ACE4D001-{{level_complementEPS}}.zip {{c_drive}}ACE4D/ACE4D001.zip;"
+
+- name: Create Directory ACE4D If Does Not Exist
+  file:
+    path: "{{c_drive}}ACE3D/"
+    state: directory
+
+- name: cp unZIp.py and Unziping the packages of installation
+  shell: "cp {{landing_zone}}unZIP.PY {{c_adx_imnt}}UINSTALL/;python3 {{c_adx_imnt}}UINSTALL/unZIP.PY 4"
+  
+- name: cp updFile.py Updating the installation files to automate the installaiton
+  shell: "cp {{landing_zone}}updFile.py {{c_adx_imnt}}UINSTALL/; python3 {{c_adx_imnt}}UINSTALL/updFile.py 4"
+
 - name: Copy Files In UINSTALL
   shell: "cp {{landing_zone}}asm.py {{c_adx_imnt}}/;cp {{landing_zone}}AUTO4D.BAT {{c_adx_imnt}};cp {{landing_zone}}START4D.BAT {{c_adx_imnt}}UINSTALL/;"
 
