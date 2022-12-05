@@ -1,5 +1,5 @@
 
-- name: Deleting ACE3D and ACE4D for installaiton
+- name: Deleting ACE3D and ACE4D and ACE6D for installaiton
   include_role:
     name: installation
     tasks_from: Erase_ACE.yml

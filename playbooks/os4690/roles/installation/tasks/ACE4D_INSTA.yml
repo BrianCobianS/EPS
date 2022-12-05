@@ -46,3 +46,7 @@
   command: cat adxcshsf.dat
   args:
       chdir: "{{c_adx_sdt1}}"
+
+- name: Deleting the ACE6D old Version dat
+  shell: "rm {{c_adx_ipgm}}ADXCDTAD.DAT"
+  when: lp.stat.exists
