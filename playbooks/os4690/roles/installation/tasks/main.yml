@@ -21,45 +21,45 @@
     name: installation
     tasks_from: Prepare_adx_imnt_Directory.yml
 
-- name: Create Directory UINSTALL/
-  file:
-    path: "{{c_adx_imnt}}UINSTALL/"
-    state: directory
+# - name: Create Directory UINSTALL/
+#   file:
+#     path: "{{c_adx_imnt}}UINSTALL/"
+#     state: directory
 
-- name: Create Directory ACE3D If Does Not Exist
-  file:
-    path: "{{c_drive}}ACE3D/"
-    state: directory
+# - name: Create Directory ACE3D If Does Not Exist
+#   file:
+#     path: "{{c_drive}}ACE3D/"
+#     state: directory
 
 - name: Create Directory ACE4D If Does Not Exist
   file:
     path: "{{c_drive}}ACE4D/"
     state: directory
 
-- name: Download Toshiba Nexus Package ACE From Nexus
-  get_url:
-    url: "{{nexus_url2}}/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE3D001/{{level_name}}-SNAPSHOT/ACE3D001-{{level_complement}}.zip"
-    dest: "{{landing_zone}}"
+# - name: Download Toshiba Nexus Package ACE From Nexus
+#   get_url:
+#     url: "{{nexus_url2}}/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE3D001/{{level_name}}-SNAPSHOT/ACE3D001-{{level_complement}}.zip"
+#     dest: "{{landing_zone}}"
 
 - name: Download Toshiba Nexus Package ACE EPS From Nexus
   get_url:
     url: "{{nexus_url2}}/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE4D001/{{level_name}}-SNAPSHOT/ACE4D001-{{level_complementEPS}}.zip"
     dest: "{{landing_zone}}"
 
-- name: Copy ACE3D
-  shell: "cp {{landing_zone}}ACE3D001-{{level_complement}}.zip {{c_drive}}ACE3D/ACE3D001.zip;"
+# - name: Copy ACE3D
+#   shell: "cp {{landing_zone}}ACE3D001-{{level_complement}}.zip {{c_drive}}ACE3D/ACE3D001.zip;"
 
 - name: Copy ACE4D
   shell: "cp {{landing_zone}}ACE4D001-{{level_complementEPS}}.zip {{c_drive}}ACE4D/ACE4D001.zip;"
 
-- name: cp unZIp.py and Unziping the packages of installation
-  shell: "cp {{landing_zone}}unZIP.PY {{c_adx_imnt}}UINSTALL/;python3 {{c_adx_imnt}}UINSTALL/unZIP.PY 3"
+# - name: cp unZIp.py and Unziping the packages of installation
+#   shell: "cp {{landing_zone}}unZIP.PY {{c_adx_imnt}}UINSTALL/;python3 {{c_adx_imnt}}UINSTALL/unZIP.PY 3"
 
-- name: Unizip ACE4D
-  shell: "python3 {{c_adx_imnt}}UINSTALL/unZIP.PY 4"
+# - name: Unizip ACE4D
+#   shell: "python3 {{c_adx_imnt}}UINSTALL/unZIP.PY 4"
   
-- name: cp updFile.py Updating the installation files to automate the installaiton
-  shell: "cp {{landing_zone}}updFile.py {{c_adx_imnt}}UINSTALL/; python3 {{c_adx_imnt}}UINSTALL/updFile.py"
+# - name: cp updFile.py Updating the installation files to automate the installaiton
+#   shell: "cp {{landing_zone}}updFile.py {{c_adx_imnt}}UINSTALL/; python3 {{c_adx_imnt}}UINSTALL/updFile.py"
 
 - name: installation ACE3D
   include_role:
