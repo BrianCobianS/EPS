@@ -1,5 +1,5 @@
 
-- name: Deleting ACE OLD VERISON FOR installation
+- name: Deleting ACE3d and ACE4D for installaiton
   include_role:
     name: installation
     tasks_from: Erase_ACE.yml
@@ -90,7 +90,7 @@
 - name: Copy Files In UINSTALL
   shell: "cp {{landing_zone}}asm.py {{c_adx_imnt}}/;cp {{landing_zone}}AUTO4D.BAT {{c_adx_imnt}}; cp {{landing_zone}}updFile.py {{c_adx_imnt}}UINSTALL/; cp {{landing_zone}}unZIP.PY {{c_adx_imnt}}UINSTALL/;cp {{landing_zone}}START4D.BAT {{c_adx_imnt}}UINSTALL/;"
 
-- name: Printing opc ACE3D
+- name: Printing opc ACE4D
   shell: "echo {{opc}} >> {{c_adx_imnt}}AUTO4D.BAT"
 
 - name: Starting the installation EPS(ACE4D)
