@@ -59,7 +59,7 @@
   shell: "python3 {{c_adx_imnt}}UINSTALL/updFile.py"
 
 - name: Printing opc ACE3D
-  shell: "echo {{opc}} >> {{c_adx_imnt}}UINSTALL/AUTO3D.BAT"
+  shell: "echo {{opc}} >> {{c_adx_imnt}}AUTO3D.BAT"
 
 - name: Starting the installation ACE3D
   shell: "{{c_adx_imnt}}UINSTALL/START3D.BAT"
@@ -88,10 +88,10 @@
     state: directory
 
 - name: Copy Files In UINSTALL
-  shell: "cp {{landing_zone}}asm.py {{c_adx_imnt}}/;cp {{landing_zone}}AUTO4D.BAT {{c_adx_imnt}}; cp {{landing_zone}}updFile.py {{c_adx_imnt}}UINSTALL/; cp {{landing_zone}}unZIP.PY {{c_adx_imnt}}UINSTALL/; cp {{landing_zone}}START3D.BAT {{c_adx_imnt}}UINSTALL/;cp {{landing_zone}}START4D.BAT {{c_adx_imnt}}UINSTALL/;"
+  shell: "cp {{landing_zone}}asm.py {{c_adx_imnt}}/;cp {{landing_zone}}AUTO4D.BAT {{c_adx_imnt}}; cp {{landing_zone}}updFile.py {{c_adx_imnt}}UINSTALL/; cp {{landing_zone}}unZIP.PY {{c_adx_imnt}}UINSTALL/;cp {{landing_zone}}START4D.BAT {{c_adx_imnt}}UINSTALL/;"
 
 - name: Printing opc ACE3D
-  shell: "echo {{opc}} >> {{c_adx_imnt}}UINSTALL/AUTO4D.BAT"
+  shell: "echo {{opc}} >> {{c_adx_imnt}}AUTO4D.BAT"
 
 - name: Starting the installation EPS(ACE4D)
   shell: "{{c_adx_imnt}}UINSTALL/START4D.BAT"
