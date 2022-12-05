@@ -31,7 +31,7 @@
 - name: Starting the installation ACE6D(TCXPAY)
   shell: "{{c_adx_imnt}}UINSTALL/START6D.BAT"
 
-- name: Starting asm and reboot controller...
+- name: Starting asm and reboot controller...a
   shell: "python2 {{c_adx_imnt}}asm.py {{ASM}} DA"
   ignore_errors: true
 
