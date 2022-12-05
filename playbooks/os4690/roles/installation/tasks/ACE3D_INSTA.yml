@@ -1,0 +1,32 @@
+
+# - name: Create Directory UINSTALL/
+#   file:
+#     path: "{{c_adx_imnt}}UINSTALL/"
+#     state: directory
+
+- name: Copy Files In UINSTALL y ACE3D
+  shell: "cp {{landing_zone}}asm.py {{c_adx_imnt}}/; cp {{landing_zone}}AUTO3D.BAT {{c_adx_imnt}};cp {{landing_zone}}START3D.BAT {{c_adx_imnt}}UINSTALL/;"
+
+- name: Printing opc ACE3D
+  shell: "echo {{opc}} >> {{c_adx_imnt}}AUTO3D.BAT"
+
+- name: Starting the installation ACE3D
+  shell: "{{c_adx_imnt}}UINSTALL/START3D.BAT"
+
+- name: Starting asm and reboot controller...
+  shell: "python2 {{c_adx_imnt}}asm.py {{ASM}} AG"
+  ignore_errors: true
+
+- name: Wait For Reboot If There Was A Change
+  wait_for_connection:
+    sleep: 5
+    delay: 10
+    timeout: 300
+
+- name: Check de log file of ASM
+  command: cat adxcshsf.dat
+  args:
+      chdir: "{{c_adx_sdt1}}"
+
+- name: Cleaning adx_imnt
+  shell: "rm -r {{c_adx_imnt}}*"

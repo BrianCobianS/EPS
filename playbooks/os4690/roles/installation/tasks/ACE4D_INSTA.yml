@@ -1,0 +1,28 @@
+- name: Create Directory UINSTALL/
+  file:
+    path: "{{c_adx_imnt}}UINSTALL/"
+    state: directory
+
+- name: Copy Files In UINSTALL
+  shell: "cp {{landing_zone}}asm.py {{c_adx_imnt}}/;cp {{landing_zone}}AUTO4D.BAT {{c_adx_imnt}};cp {{landing_zone}}START4D.BAT {{c_adx_imnt}}UINSTALL/;"
+
+- name: Printing opc ACE4D
+  shell: "echo {{opc}} >> {{c_adx_imnt}}AUTO4D.BAT"
+
+- name: Starting the installation EPS(ACE4D)
+  shell: "{{c_adx_imnt}}UINSTALL/START4D.BAT"
+
+- name: Starting asm and reboot controller...
+  shell: "python2 {{c_adx_imnt}}asm.py {{ASM}} AI"
+  ignore_errors: true
+
+- name: Wait For Reboot If There Was A Change
+  wait_for_connection:
+    sleep: 5
+    delay: 10
+    timeout: 300
+
+- name: Check de log file of ASM
+  command: cat adxcshsf.dat
+  args:
+      chdir: "{{c_adx_sdt1}}"
