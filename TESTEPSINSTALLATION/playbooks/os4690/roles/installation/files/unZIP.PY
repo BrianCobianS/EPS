@@ -1,5 +1,0 @@
-from zipfile import ZipFile
-
-with ZipFile("/mnt/c/ACE4D/ACE4D001.zip", "r") as zip:
-    zip.extractall("/mnt/c/ACE4D")
-    print("File is unzipped in %s folder" % "/mnt/c/ACE4D")
