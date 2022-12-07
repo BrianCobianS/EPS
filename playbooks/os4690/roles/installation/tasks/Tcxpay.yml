@@ -2,7 +2,6 @@
   stat:
     path: "{{c_adx_ipgm}}ADXCDTAD.DAT"
   register: lp
-  when: opc  == "1"
 
 - name: Deleting the ACE6D old Version dat
   shell: "rm {{c_adx_ipgm}}ADXCDTAD.DAT"
