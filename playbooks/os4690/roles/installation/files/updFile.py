@@ -95,7 +95,7 @@ elif sys.argv[1]=='4':
     erasepauses("/mnt/c/ace4d/8.bat")
     erasepauses("/mnt/c/ace4d/MIGRATE.bat")
 elif sys.argv[1]=='6':
-    changeBat('/mnt/c/ace6d/install.bat','MENU\n','AUTO4D.BAT', 0)
+    changeBat('/mnt/c/ace6d/install.bat','MENU\n','AUTO6D.BAT', 0)
     changeBat('/mnt/c/ace6d/1.bat','MENU\n','CLS\n9.BAT', 2)
     changeBat('/mnt/c/ace6d/1.bat','menu\n','CLS\n9.BAT', 0)
     changeBat('/mnt/c/ace6d/2.bat','   menu\n','   CLS\n   9.BAT', 2)
