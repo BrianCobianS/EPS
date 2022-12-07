@@ -30,13 +30,19 @@
     path: "{{c_adx_ipgm}}ADXCDTAD.DAT"
   register: ACE6DPCF
 
-- name: Deleting the ACE6D old Version dat
+- name: Deleting the ACE6D old Version dat and installation
   shell: "rm {{c_adx_ipgm}}ADXCDTAD.DAT; echo 1 >> {{c_adx_imnt}}AUTO6D.BAT"
   when: 
       - ACE6DPCF.stat.exists
       - opc == "1"
 
-- name: Printing opc ACE6D for installation not when not previous Txcpay Version
+- name: Firs time installation for Tcxpay
+  shell: "echo 1 >> {{c_adx_imnt}}AUTO6D.BAT"
+  when: 
+      - not ACE6DPCF.stat.exists
+      - opc == "1"
+
+- name: Not previous information of Tcxpay for migration, changing to installation
   shell: "echo 1 >> {{c_adx_imnt}}AUTO6D.BAT"
   when:
       - not ACE6DPCF.stat.exists
@@ -45,6 +51,7 @@
 - name: Printing opc ACE6D for migration
   shell: "echo 2 >> {{c_adx_imnt}}AUTO6D.BAT"
   when:
+    - ACE6DPCF.stat.exists
     - opc == "2"
 
 - name: Starting the installation ACE6D(TCXPAY)

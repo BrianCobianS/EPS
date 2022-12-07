@@ -26,8 +26,34 @@
 - name: Copy Files In UINSTALL
   shell: "cp {{landing_zone}}asm.py {{c_adx_imnt}}/;cp {{landing_zone}}AUTO4D.BAT {{c_adx_imnt}};cp {{landing_zone}}START4D.BAT {{c_adx_imnt}}UINSTALL/;"
 
-- name: Printing opc ACE4D
-  shell: "echo {{opc}} >> {{c_adx_imnt}}AUTO4D.BAT"
+- name: Cheks if there is an ACE4D old Version dat
+  stat:
+    path: "{{c_adx_ipgm}}ADXCATID.DAT"
+  register: ACE4DPCF
+
+- name: Deleting the ACE4D old Version dat and Installation
+  shell: "rm {{c_adx_ipgm}}ADXCDTAD.DAT; echo 1 >> {{c_adx_imnt}}AUTO4D.BAT"
+  when: 
+      - ACE4DPCF.stat.exists
+      - opc == "1"
+
+- name: Firs time installaiton for EPS
+  shell: "echo 1 >> {{c_adx_imnt}}AUTO4D.BAT"
+  when: 
+      - not ACE4DPCF.stat.exists
+      - opc == "1"
+
+- name: Not previous information of EPS for migration, changing to installation
+  shell: "echo 1 >> {{c_adx_imnt}}AUTO4D.BAT"
+  when:
+      - not ACE4DPCF.stat.exists
+      - opc == "2"
+  
+- name: Migration ACE EPS
+  shell: "echo 2 >> {{c_adx_imnt}}AUTO4D.BAT"
+  when:
+    - ACE4DPCF.stat.exists
+    - opc == "2"
 
 - name: Starting the installation EPS(ACE4D)
   shell: "{{c_adx_imnt}}UINSTALL/START4D.BAT"
