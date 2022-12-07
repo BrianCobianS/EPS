@@ -14,7 +14,7 @@
     state: directory
 
 - name: Copy ACE6D
-  shell: "cp {{landing_zone}}ACE6D001-{{level_complementEPS}}.zip {{c_drive}}ACE6D/ACE6D001.zip;"
+  shell: "cp {{landing_zone}}ACE6D001-{{level_complementTcxpay}}.zip {{c_drive}}ACE6D/ACE6D001.zip;"
 
 - name: cp unZIp.py and Unziping the packages of installation
   shell: "cp {{landing_zone}}unZIP.PY {{c_adx_imnt}}UINSTALL/;python3 {{c_adx_imnt}}UINSTALL/unZIP.PY 6"
