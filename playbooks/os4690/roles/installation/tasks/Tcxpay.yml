@@ -1,14 +1,3 @@
-- name: Cheks if there is an ACE6D old Version dat
-  stat:
-    path: "{{c_adx_ipgm}}ADXCDTAD.DAT"
-  register: lp
-
-- name: Deleting the ACE6D old Version dat
-  shell: "rm {{c_adx_ipgm}}ADXCDTAD.DAT"
-  when: 
-      - lp.stat.exists
-      - opc == "1"
-
 - name: Create Directory UINSTALL/
   file:
     path: "{{c_adx_imnt}}UINSTALL/"
@@ -36,8 +25,27 @@
 - name: Copy Files In UINSTALL
   shell: "cp {{landing_zone}}asm.py {{c_adx_imnt}}/;cp {{landing_zone}}AUTO6D.BAT {{c_adx_imnt}};cp {{landing_zone}}START6D.BAT {{c_adx_imnt}}UINSTALL/;"
 
-- name: Printing opc ACE6D
-  shell: "echo {{opc}} >> {{c_adx_imnt}}AUTO6D.BAT"
+- name: Cheks if there is an ACE6D old Version dat
+  stat:
+    path: "{{c_adx_ipgm}}ADXCDTAD.DAT"
+  register: ACE6DPCF
+
+- name: Deleting the ACE6D old Version dat
+  shell: "rm {{c_adx_ipgm}}ADXCDTAD.DAT; echo 1 >> {{c_adx_imnt}}AUTO6D.BAT"
+  when: 
+      - ACE6DPCF.stat.exists
+      - opc == "1"
+
+- name: Printing opc ACE6D for installation not when not previous Txcpay Version
+  shell: "echo 1 >> {{c_adx_imnt}}AUTO6D.BAT"
+  when:
+      - not ACE6DPCF.stat.exists
+      - opc == "2"
+  
+- name: Printing opc ACE6D for migration
+  shell: "echo 2 >> {{c_adx_imnt}}AUTO6D.BAT"
+  when:
+    - opc == "2"
 
 - name: Starting the installation ACE6D(TCXPAY)
   shell: "{{c_adx_imnt}}UINSTALL/START6D.BAT"
