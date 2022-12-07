@@ -6,7 +6,9 @@
 
 - name: Deleting the ACE6D old Version dat
   shell: "rm {{c_adx_ipgm}}ADXCDTAD.DAT"
-  when: lp.stat.exists
+  when: 
+      - lp.stat.exists
+      - opc == "1"
 
 - name: Create Directory UINSTALL/
   file:
