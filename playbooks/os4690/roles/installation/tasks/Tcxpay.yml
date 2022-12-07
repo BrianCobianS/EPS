@@ -1,3 +1,13 @@
+- name: Cheks if there is an ACE6D old Version dat
+  stat:
+    path: "{{c_adx_ipgm}}ADXCDTAD.DAT"
+  register: 6d
+  when: opc  == "1"
+
+- name: Deleting the ACE6D old Version dat
+  shell: "rm {{c_adx_ipgm}}ADXCDTAD.DAT"
+  when: 6d.stat.exists
+
 - name: Create Directory UINSTALL/
   file:
     path: "{{c_adx_imnt}}UINSTALL/"
