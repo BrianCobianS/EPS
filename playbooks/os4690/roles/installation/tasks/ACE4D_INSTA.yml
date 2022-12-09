@@ -32,7 +32,7 @@
   register: ACE4DPCF
 
 - name: Deleting the ACE4D old Version dat and Installation
-  shell: "rm {{c_adx_ipgm}}ADXCDTAD.DAT; echo 1 >> {{c_adx_imnt}}AUTO4D.BAT"
+  shell: "rm {{c_adx_ipgm}}ADXCATID.DAT; echo 1 >> {{c_adx_imnt}}AUTO4D.BAT"
   when: 
       - ACE4DPCF.stat.exists
       - opc == "1"

@@ -34,7 +34,7 @@
   shell: "rm {{c_adx_ipgm}}ADXCDTAD.DAT; echo 1 >> {{c_adx_imnt}}AUTO6D.BAT"
   when: 
       - ACE6DPCF.stat.exists
-      - opc == "1"
+      - opc == "1"  
 
 - name: Firs time installation for Tcxpay
   shell: "echo 1 >> {{c_adx_imnt}}AUTO6D.BAT"
