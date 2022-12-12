@@ -1,5 +1,5 @@
 
-- name: Deleting ACE3D and ACE4D and ACE6D for installaiton
+- name: Deleting ACE3D for installaiton
   include_role:
     name: installation
     tasks_from: Erase_ACE.yml
@@ -41,13 +41,13 @@
 
 # - name: Installation TcxpayCommon
 #   include_role:
-#     name: installation ACE4D EPS
-#     tasks_from: ACE4D_INSTA.yml
+#     name: installation
+#     tasks_from: Common.yml
   
 # - name: Installation TcxpayPINPAD
 #   include_role:
-#     name: installation ACE4D EPS
-#     tasks_from: ACE4D_INSTA.yml
+#     name: installation
+#     tasks_from: PinPad.yml
 
 - name: Cleaning directories.
   include_role:
