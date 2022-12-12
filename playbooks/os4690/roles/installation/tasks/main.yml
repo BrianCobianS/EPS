@@ -43,7 +43,7 @@
   include_role:
     name: installation
     tasks_from: Common.yml
-    when: Common == "1"
+  when: Common == "1"
   
 # - name: Installation TcxpayPINPAD
 #   include_role:
