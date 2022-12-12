@@ -21,6 +21,12 @@
     name: installation
     tasks_from: Prepare_adx_imnt_Directory.yml
 
+- name: Installation TcxpayCommon
+  include_role:
+    name: installation
+    tasks_from: Common.yml
+  when: Common == "1"
+
 - name: installation ACE3D
   include_role:
     name: installation
@@ -37,13 +43,6 @@
     name: installation
     tasks_from: ACE4D_INSTA.yml
 
-
-
-- name: Installation TcxpayCommon
-  include_role:
-    name: installation
-    tasks_from: Common.yml
-  when: Common == "1"
   
 # - name: Installation TcxpayPINPAD
 #   include_role:
