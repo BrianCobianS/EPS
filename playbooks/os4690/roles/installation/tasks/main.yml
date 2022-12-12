@@ -39,10 +39,11 @@
 
 
 
-# - name: Installation TcxpayCommon
-#   include_role:
-#     name: installation
-#     tasks_from: Common.yml
+- name: Installation TcxpayCommon
+  include_role:
+    name: installation
+    tasks_from: Common.yml
+    when: Common == "1"
   
 # - name: Installation TcxpayPINPAD
 #   include_role:
