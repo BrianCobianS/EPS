@@ -29,6 +29,7 @@
   get_url:
     url: "{{nexus_url2}}/repository/tgcs-maven-release/com/tgcs/tcxpay/tcxpay-pinpad-spt-asm/{{levelPIN}}/tcxpay-pinpad-spt-asm-{{levelPIN}}.iso"
     dest: "{{landing_zone}}"
+    timeout: 300
 
 - name: Copy the iso to F:/
   shell: "cp {{landing_zone}}tcxpay-pinpad-spt-asm-{{levelPIN}}.iso {{f_drive}} && echo ISO abailable in F:/"
