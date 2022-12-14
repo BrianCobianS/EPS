@@ -7,12 +7,13 @@
   get_url:
     url: "{{nexus_url2}}/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE6D001/{{level_name}}-SNAPSHOT/ACE6D001-{{level_complementTcxpay}}.zip"
     dest: "{{landing_zone}}"
+    timeout: 300
     
 - name: Create Directory ACE46D If Does Not Exist
   file:
     path: "{{c_drive}}ACE6D/"
     state: directory
-    timeout: 300
+
 
 - name: Copy ACE6D
   shell: "cp {{landing_zone}}ACE6D001-{{level_complementTcxpay}}.zip {{c_drive}}ACE6D/ACE6D001.zip;"
