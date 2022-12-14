@@ -4,6 +4,15 @@
     name: installation
     tasks_from: Prepare_adx_imnt_Directory.yml
 
+- name: Cheks if there is an tcxpay-PinPad old Version dat
+  stat:
+    path: "{{c_adx_ipgm}}ADXCFTID.DAT"
+  register: pipad
+
+- name: Deleting the tcxpay-PinPad old Version dat and Installation
+  shell: "rm {{c_adx_ipgm}}ADXCFTID.DAT"
+  when: pinpad.stat.exists
+
 - name: Check adx_imnt:PYCINST.BAT scripts Exist
   stat:
     path: "{{c_adx_imnt}}PYCINST.BAT"
