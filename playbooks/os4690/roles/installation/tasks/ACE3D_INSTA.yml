@@ -12,6 +12,7 @@
   get_url:
     url: "{{nexus_url2}}/repository/tgcs-maven-snapshot/com/toshibacommerce/ace/ACE3D001/{{level_name}}-SNAPSHOT/ACE3D001-{{level_complement}}.zip"
     dest: "{{landing_zone}}"
+    timeout: 300
 
 - name: Copy ACE3D
   shell: "cp {{landing_zone}}ACE3D001-{{level_complement}}.zip {{c_drive}}ACE3D/ACE3D001.zip;"
