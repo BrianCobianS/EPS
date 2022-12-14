@@ -7,11 +7,11 @@
 - name: Cheks if there is an tcxpay-PinPad old Version dat
   stat:
     path: "{{c_adx_ipgm}}ADXCFTID.DAT"
-  register: pipad
+  register: lp
 
 - name: Deleting the tcxpay-PinPad old Version dat and Installation
   shell: "rm {{c_adx_ipgm}}ADXCFTID.DAT"
-  when: pinpad.stat.exists
+  when: lp.stat.exists
 
 - name: Check adx_imnt:PYCINST.BAT scripts Exist
   stat:
